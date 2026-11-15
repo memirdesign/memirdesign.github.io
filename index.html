@@ -321,10 +321,10 @@ footer a:hover{color:var(--tx)}
 
 /* ---------- Social ---------- */
 .social{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.soc-grid{display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:auto auto;gap:16px}
+.soc-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
 .soc{position:relative;display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:10px;padding:clamp(22px,2.6vw,34px);background:var(--bg);overflow:hidden;transition:border-color .3s,transform .5s var(--ease)}
 a.soc:hover{border-color:rgba(239,233,225,.35)}
-.soc.ig{grid-row:span 2;background:radial-gradient(80% 60% at 100% 0%,rgba(255,90,31,.14),transparent 60%),var(--bg)}
+
 .soc-top{display:flex;align-items:center;gap:12px;color:var(--mu)}
 .soc-ico{width:42px;height:42px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--tx)}
 .soc-ico svg{width:20px;height:20px}
@@ -359,8 +359,8 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
 .hero-soc a:hover{color:var(--ac)}
 .hero-soc a:not(:last-child)::after{content:"/";position:absolute;right:-14px;color:var(--line2)}
 @media (max-width:1100px){.pillars{grid-template-columns:1fr 1fr}.pillar:nth-child(2){border-right:0;margin-right:0}.pillar:nth-child(n+3){border-top:1px solid var(--line)}}
-@media (max-width:900px){.intro{margin-left:0}.soc-grid{grid-template-columns:1fr}.soc.ig{grid-row:auto}.soc .reels{grid-template-columns:repeat(6,42%);margin-left:0;margin-right:0;padding:0 0 6px}}
-@media (max-width:600px){.pillars{grid-template-columns:1fr}.pillar{border-right:0;margin-right:0;padding-right:0}.pillar:nth-child(n+2){border-top:1px solid var(--line)}.soc .reels{grid-template-columns:repeat(6,46%)}}
+@media (max-width:900px){.intro{margin-left:0}}
+@media (max-width:600px){.pillars{grid-template-columns:1fr}.pillar{border-right:0;margin-right:0;padding-right:0}.pillar:nth-child(n+2){border-top:1px solid var(--line)}}
 /* fixes */
 .manifesto blockquote{max-width:15ch;position:relative;z-index:1}
 .dim{top:auto;bottom:clamp(40px,6vw,90px);transform:none;width:clamp(120px,15vw,220px);opacity:.8}
@@ -368,13 +368,47 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
 .sheet-draw .name{top:22px;bottom:auto;font-size:clamp(24px,2.5vw,38px)}
 .sheet-draw .name small{margin-bottom:8px}
 
-.covers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 28px}
-.cover{position:relative;border-radius:8px;overflow:hidden;background:var(--bg3);border:1px solid var(--line)}
-.cover img{width:100%;aspect-ratio:331/477;object-fit:cover;transition:transform .9s var(--ease),filter .4s}
-.cover svg{position:absolute;top:8px;right:8px;width:14px;height:14px;color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
-a.soc:hover .cover img{filter:saturate(1.08)}
-.cover:hover img{transform:scale(1.05)}
-@media (max-width:600px){.covers{grid-template-columns:repeat(2,1fr)}}
+.ig{border:1px solid var(--line2);border-radius:12px;background:radial-gradient(70% 90% at 100% 0%,rgba(255,90,31,.13),transparent 60%),var(--bg);padding:clamp(22px,2.8vw,40px);overflow:hidden}
+.ig-head{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,3vw,56px);align-items:center;margin-bottom:clamp(26px,3vw,40px)}
+.ig-id{display:flex;align-items:center;gap:18px}
+.ig-id .mono{color:var(--mu)}
+.ig .soc-handle{margin:6px 0 0}
+.ig-head p{margin:0;color:var(--mu);font-size:15.5px;max-width:48ch}
+.ig-actions{display:flex;align-items:center;gap:14px}
+.strip-nav{display:flex;gap:8px}
+.strip-nav button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:transparent;color:var(--tx);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,background .2s,opacity .2s}
+.strip-nav button:hover{border-color:var(--tx);background:rgba(239,233,225,.05)}
+.strip-nav button:disabled{opacity:.3;cursor:default}
+.strip-nav svg{width:16px;height:16px}
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*18px)/4.35);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;margin:0 calc(clamp(22px,2.8vw,40px)*-1);padding:0 clamp(22px,2.8vw,40px) 4px;scroll-padding:0 clamp(22px,2.8vw,40px)}
+.strip::-webkit-scrollbar{display:none}
+.cover{position:relative;display:block;border-radius:10px;overflow:hidden;background:var(--bg3);border:1px solid var(--line);scroll-snap-align:start}
+.cover img{width:100%;aspect-ratio:331/477;object-fit:cover;transition:transform .9s var(--ease)}
+.cover:hover img{transform:scale(1.04)}
+.cover-cap{display:block;padding:14px 4px 2px;font-size:15px;font-weight:650;font-stretch:106%;letter-spacing:-.005em;line-height:1.3;background:var(--bg)}
+.cover{border:0;background:none;overflow:visible}
+.cover img{border-radius:10px;border:1px solid var(--line)}
+.cover-cap small{display:block;font-size:10px;color:var(--ac);margin-bottom:5px;font-weight:400;letter-spacing:.1em}
+@media (max-width:1100px){.ig-head{grid-template-columns:1fr auto}.ig-head p{grid-column:1/-1;grid-row:2}}
+@media (max-width:900px){.soc-row{grid-template-columns:1fr}.strip{grid-auto-columns:42%}}
+@media (max-width:600px){.ig-head{grid-template-columns:1fr}.ig-actions{justify-content:space-between}.strip{grid-auto-columns:62%;gap:14px}.strip-nav button{width:46px;height:46px}}
+
+/* ---------- Polish ---------- */
+@media (min-width:901px){.project.flip .eng{grid-column:6/13;order:2;align-self:center}}
+.p-media > .frame:first-child .cap{top:14px;bottom:auto}
+.contact{padding-top:clamp(70px,9vw,130px)}
+.hint{display:flex;flex-direction:column;gap:6px}
+.hint .em{font-family:var(--fm);font-size:13px;letter-spacing:.02em;text-transform:none;color:var(--mu)}
+.hint .em:hover{color:var(--ac)}
+.ig-head > *{min-width:0}
+.ig .soc-handle{font-size:clamp(28px,4.2vw,60px);overflow-wrap:anywhere}
+@media (max-width:600px){
+  .readout .bar{display:none}
+  .tb div{border-right:0!important}
+  .tb .br{border-right:1px solid var(--line2)!important}
+  .contact h2{font-size:clamp(40px,11.5vw,64px)}
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
   .reels{grid-template-columns:repeat(3,1fr)}
@@ -554,28 +588,34 @@ a.soc:hover .cover img{filter:saturate(1.08)}
       <h2>Atölye her gün <em>yayında.</em></h2>
     </div>
 
-    <div class="soc-grid">
-      <a class="soc ig reveal" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener">
-        <div class="soc-top">
+    <div class="ig reveal">
+      <div class="ig-head">
+        <div class="ig-id">
           <span class="soc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></span>
-          <span class="mono">Instagram</span>
-          <svg class="go" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg>
+          <div>
+            <span class="mono">Instagram</span>
+            <div class="soc-handle">@memirdesign</div>
+          </div>
         </div>
-        <div class="soc-handle">@memirdesign</div>
         <p>Kısa Reels'ler: yazıcı kurulumları, dayanım testleri, tasarım süreçleri ve bolca baskı hatası. Bio'muzda da yazdığı gibi: bizi tasarımlarımız kadar ciddiye almayın.</p>
-        <div class="covers">
-          <div class="cover"><img src="reel-cekic.webp" alt="Çekiç dayanım testi: kırılacak mı?" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-f1.webp" alt="3D yazıcı ile F1 Bricks setini bastık" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-kobra.webp" alt="Anycubic Kobra X kurulumu" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-zeka2.webp" alt="Çocuklar için zekâ oyunları: paketledik, teslim ettik (Part 2)" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-zeka1.webp" alt="Çocuklar için zekâ oyunları tasarladık (Part 1)" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-hayvan.webp" alt="Yapay zekâyla hayvan figürleri" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-eskiz.webp" alt="Eskizden sergiye: bir fikrin üç boyutlu yolculuğu" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
-          <div class="cover"><img src="reel-spark.webp" alt="Creality Spark X7 Combo kurulum videosu" loading="lazy" width="331" height="477"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l7-4.5z"/></svg></div>
+        <div class="ig-actions">
+          <a class="btn btn-ac" href="https://www.instagram.com/memirdesign/" target="_blank" rel="noopener">Takip et <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+          <div class="strip-nav" aria-hidden="true"><button type="button" data-dir="-1" aria-label="Önceki"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" data-dir="1" aria-label="Sonraki"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m6 3 5 5-5 5"/></svg></button></div>
         </div>
-        <span class="btn btn-ac soc-btn">Instagram'da takip et <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></span>
-      </a>
+      </div>
+      <div class="strip" id="strip">
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-cekic.webp" alt="Çekiç dayanım testi" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Mühendislik</small>Çekiç dayanım testi</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-f1.webp" alt="F1 Bricks setini bastık" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Baskı</small>F1 Bricks setini bastık</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-kobra.webp" alt="Kobra X kurulumu" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Kurulum</small>Kobra X kurulumu</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-zeka2.webp" alt="Zekâ oyunları · Part 2" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Tasarım</small>Zekâ oyunları · Part 2</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-zeka1.webp" alt="Zekâ oyunları · Part 1" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Tasarım</small>Zekâ oyunları · Part 1</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-hayvan.webp" alt="Yapay zekâyla hayvan figürleri" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Teknoloji</small>Yapay zekâyla hayvan figürleri</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-eskiz.webp" alt="Eskizden sergiye" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Süreç</small>Eskizden sergiye</span></a>
+          <a class="cover" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><img src="reel-spark.webp" alt="Spark X7 Combo kurulumu" loading="lazy" width="331" height="477"><span class="cover-cap"><small class="mono">Kurulum</small>Spark X7 Combo kurulumu</span></a>
+      </div>
+    </div>
 
+    <div class="soc-row">
       <a class="soc yt reveal" data-link="youtube" href="#" target="_blank" rel="noopener">
         <div class="soc-top">
           <span class="soc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg></span>
@@ -805,7 +845,7 @@ a.soc:hover .cover img{filter:saturate(1.08)}
         </div>
         <div class="tb">
           <div class="w2"><span class="k">Stüdyo</span><span class="v">Memir Design</span></div>
-          <div><span class="k">Ölçek</span><span class="v">1 : 1</span></div>
+          <div class="br"><span class="k">Ölçek</span><span class="v">1 : 1</span></div>
           <div><span class="k">Rev.</span><span class="v">2026</span></div>
           <div class="w2"><span class="k">Ünvan</span><span class="v">Endüstriyel Tasarımcı</span></div>
           <div class="w2"><span class="k">Deneyim</span><span class="v">Staj — Gökhan Hayta</span></div>
@@ -832,7 +872,7 @@ a.soc:hover .cover img{filter:saturate(1.08)}
         <a class="btn btn-ac" data-link="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp'tan yaz <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
         <a class="btn btn-ghost" href="https://instagram.com/memirdesign" target="_blank" rel="noopener">Instagram'dan mesaj at <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
         <a class="btn btn-ghost" data-link="email" href="#">E-posta gönder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
-        <span class="hint mono">mehmetemiraydn@gmail.com · Mesajlara genellikle aynı gün dönüyoruz.</span>
+        <div class="hint"><a class="em" href="mailto:mehmetemiraydn@gmail.com">mehmetemiraydn@gmail.com</a><span class="mono">Mesajlara genellikle aynı gün dönüyoruz.</span></div>
       </div>
     </div>
   </div>
@@ -858,7 +898,7 @@ a.soc:hover .cover img{filter:saturate(1.08)}
 <script>
 /* ===== Bağlantılar: boş bırakılanların butonu gizlenir ===== */
 const LINKS = {
-  whatsapp: "https://wa.me/905376685339?text=" + encodeURIComponent("Merhaba Memir Design, bir proje hakkında konuşmak istiyorum."),
+  whatsapp: "https://wa.me/905334855536?text=" + encodeURIComponent("Merhaba Memir Design, bir proje hakkında konuşmak istiyorum."),
   youtube:  "https://www.youtube.com/@MemirDesign",
   email:    "mailto:mehmetemiraydn@gmail.com"
 };
@@ -868,6 +908,16 @@ document.querySelectorAll("[data-link]").forEach(a=>{
   if(u){ a.href = u; } else if(FALLBACK[a.dataset.link]){ a.href = FALLBACK[a.dataset.link]; } else { a.remove(); }
 });
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ===== Reels şeridi ===== */
+(function(){
+  const st=document.getElementById("strip"); if(!st) return;
+  const btns=document.querySelectorAll(".strip-nav button");
+  const step=()=> (st.querySelector(".cover")?.getBoundingClientRect().width||240)+18;
+  btns.forEach(b=>b.addEventListener("click",()=> st.scrollBy({left:step()*2*+b.dataset.dir})));
+  const upd=()=>{ btns[0].disabled = st.scrollLeft<8; btns[1].disabled = st.scrollLeft+st.clientWidth>=st.scrollWidth-8; };
+  st.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd); upd();
+})();
 
 /* ===== Nav ===== */
 const nav = document.getElementById("nav");
