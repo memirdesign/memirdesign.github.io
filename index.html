@@ -480,6 +480,21 @@ footer .wrap{justify-content:space-between}
 @media (max-width:900px){.accs{grid-template-columns:1fr}.acc,.acc.main{grid-column:auto}.about2-grid{grid-template-columns:1fr}.rcs{grid-template-columns:repeat(2,1fr)}.hero > .wrap{min-height:0}}
 @media (max-width:600px){.acc{padding:18px}.acc.main{padding:20px 18px}.acc-txt b{font-size:19px}.acc.main .acc-txt b{font-size:23px}.acc-ico{flex-basis:42px;width:42px;height:42px}.mail{font-size:clamp(17px,5.2vw,22px)}.hero-art{height:34vh;min-height:230px}}
 
+
+.cbox{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;border:1px solid var(--line2);border-radius:16px;padding:clamp(26px,4vw,52px);background:radial-gradient(70% 100% at 100% 0%,rgba(225,6,0,.12),transparent 60%),var(--bg2)}
+.cbox h2{font-size:clamp(34px,4.4vw,64px);margin:0 0 14px}
+.cbox-l p{margin:0;color:var(--mu);max-width:42ch}
+.cbox-r{border-left:1px solid var(--line2);padding-left:clamp(24px,4vw,56px)}
+.cbox-k{color:var(--mu2);display:block;margin-bottom:8px}
+.cbox-mail{font-size:clamp(19px,1.9vw,26px);font-weight:700;font-stretch:106%;letter-spacing:-.01em;margin-bottom:22px;overflow-wrap:anywhere}
+.cbox-btns{display:flex;flex-wrap:wrap;gap:10px}
+.cbox-btns button{cursor:pointer;background:transparent;font:inherit;font-family:var(--fm);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.cbox-btns .copied{border-color:var(--ac);color:var(--ac)}
+.cbox-alt{display:inline-block;margin-top:16px;color:var(--mu2);text-transform:none;letter-spacing:.02em;border-bottom:1px solid var(--line2)}
+.cbox-alt:hover{color:var(--tx)}
+@media (max-width:900px){.cbox{grid-template-columns:1fr}.cbox-r{border-left:0;padding-left:0;border-top:1px solid var(--line2);padding-top:24px}}
+@media (max-width:600px){.cbox-btns .btn{flex:1 1 100%;justify-content:center}}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
   .reels{grid-template-columns:repeat(3,1fr)}
@@ -646,8 +661,21 @@ footer .wrap{justify-content:space-between}
 <section class="sec contact2" id="iletisim">
   <div class="wrap">
     <div class="mono reveal" style="color:var(--mu2);margin-bottom:22px"><b class="ac" style="font-weight:500">04</b> — İletişim</div>
-    <h2 class="reveal">Bir fikrin mi var? <em>Yaz.</em></h2>
-    <a class="mail reveal" href="mailto:mehmetemiraydn@gmail.com">mehmetemiraydn@gmail.com <svg class="go" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+    <div class="cbox reveal">
+      <div class="cbox-l">
+        <h2>Bir fikrin mi var? <em>Yaz.</em></h2>
+        <p>İş birliği, video önerisi ya da sadece merhaba. Mesajlara genellikle aynı gün dönüyoruz.</p>
+      </div>
+      <div class="cbox-r">
+        <span class="mono cbox-k">E-posta</span>
+        <div class="cbox-mail" id="mailAddr">mehmetemiraydn@gmail.com</div>
+        <div class="cbox-btns">
+          <a class="btn btn-ac" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=mehmetemiraydn@gmail.com&amp;su=Memir%20Design" target="_blank" rel="noopener" style="text-transform:none">GMAIL İLE YAZ <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+          <button type="button" class="btn btn-ghost" id="copyMail">Adresi kopyala</button>
+        </div>
+        <a class="cbox-alt mono" href="mailto:mehmetemiraydn@gmail.com">veya mail uygulamasında aç</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -681,6 +709,17 @@ document.getElementById("yr").textContent = new Date().getFullYear();
   btns.forEach(b=>b.addEventListener("click",()=> st.scrollBy({left:step()*2*+b.dataset.dir})));
   const upd=()=>{ btns[0].disabled = st.scrollLeft<8; btns[1].disabled = st.scrollLeft+st.clientWidth>=st.scrollWidth-8; };
   st.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd); upd();
+})();
+
+/* ===== E-posta kopyala ===== */
+(function(){
+  const b=document.getElementById("copyMail"); if(!b) return;
+  b.addEventListener("click",async()=>{
+    const t=document.getElementById("mailAddr").textContent.trim();
+    try{ await navigator.clipboard.writeText(t); }catch(e){ const r=document.createRange(); r.selectNodeContents(document.getElementById("mailAddr")); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); try{document.execCommand("copy")}catch(_){} }
+    b.textContent="Kopyalandı ✓"; b.classList.add("copied");
+    setTimeout(()=>{ b.textContent="Adresi kopyala"; b.classList.remove("copied"); },2000);
+  });
 })();
 
 /* ===== Nav ===== */
