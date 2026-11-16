@@ -409,6 +409,40 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
   .contact h2{font-size:clamp(40px,11.5vw,64px)}
 }
 
+
+/* ---------- Compact layout v2 ---------- */
+.sec{padding:clamp(64px,8vw,112px) 0}
+.sec-head{margin-bottom:clamp(32px,4vw,56px)}
+.hero{min-height:auto}
+.hero > .wrap{min-height:calc(min(100svh,900px) - 76px - 62px)}
+.social{border-top:1px solid var(--line)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--mu);font-family:var(--fm);font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.tab small{font-size:10.5px;color:var(--mu2)}
+.tab:hover{color:var(--tx);border-color:var(--tx)}
+.tab.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.tab.on small{color:rgba(255,255,255,.75)}
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 20px}
+.wcard{display:block;transition:opacity .3s}
+.wcard.hide{display:none}
+.wimg{border-radius:10px;overflow:hidden;background:var(--bg3);border:1px solid var(--line);margin-bottom:14px}
+.wimg img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .9s var(--ease)}
+.wcard:hover .wimg img{transform:scale(1.04)}
+.wcat{color:var(--ac);font-size:10.5px;display:block;margin-bottom:6px}
+.wcard h3{margin:0 0 6px;font-size:20px;font-weight:750;font-stretch:110%;letter-spacing:-.015em;line-height:1.15}
+.wcard p{margin:0;color:var(--mu);font-size:14.5px;line-height:1.5}
+a.wcard:hover h3{color:var(--ac)}
+.biz{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.biz .pillar svg{display:none}
+.biz .pillar{padding-top:26px}
+.quote{margin:clamp(40px,5vw,64px) 0 0;font-size:clamp(26px,3.2vw,46px);font-weight:800;font-stretch:112%;letter-spacing:-.025em;line-height:1.1;max-width:28ch}
+.quote span{color:var(--ac)}
+.quote cite{display:block;margin-top:18px;font-style:normal;color:var(--mu2);font-weight:400;font-stretch:100%}
+.about-copy p{font-size:clamp(17px,1.3vw,19px)}
+@media (max-width:1100px){.wgrid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.wgrid{grid-template-columns:repeat(2,1fr);gap:24px 14px}.tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(var(--pad)*-1) 24px;padding:0 var(--pad);scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto}.hero > .wrap{min-height:0}}
+@media (max-width:600px){.wcard h3{font-size:17px}.wcard p{font-size:13.5px}.hero-art{height:42vh;min-height:280px}.biz .pillars{grid-template-columns:1fr 1fr;gap:0 16px}.biz .pillar{border-top:1px solid var(--line)!important;padding:18px 0 14px}.biz .pillar h3{font-size:19px}.biz .pillar p{font-size:14px}.yt-art{display:none}}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
   .reels{grid-template-columns:repeat(3,1fr)}
@@ -482,9 +516,9 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
       <span>Memir Design</span>
     </a>
     <nav aria-label="Ana menü"><ul>
-      <li><a href="#biz">Biz</a></li>
       <li><a href="#takip">Takip et</a></li>
       <li><a href="#isler">İşler</a></li>
+      <li><a href="#biz">Biz</a></li>
       <li><a href="#kurucu">Mehmet Emir</a></li>
     </ul></nav>
     <a class="btn btn-ghost nav-cta" href="#iletisim">İletişim</a>
@@ -492,11 +526,11 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="#biz"><small>01</small>Biz</a>
-  <a href="#takip"><small>02</small>Takip et</a>
-  <a href="#isler"><small>03</small>İşler</a>
-  <a href="#kurucu"><small>05</small>Mehmet Emir</a>
-  <a href="#iletisim"><small>06</small>İletişim</a>
+  <a href="#takip"><small>01</small>Takip et</a>
+  <a href="#isler"><small>02</small>İşler</a>
+  <a href="#biz"><small>03</small>Biz</a>
+  <a href="#kurucu"><small>04</small>Mehmet Emir</a>
+  <a href="#iletisim"><small>05</small>İletişim</a>
 </div>
 
 <main id="top">
@@ -510,7 +544,7 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
       <p class="lead"><b>Memir Design</b>; tasarım, 3D baskı ve teknoloji üzerine üreten ve ürettiği her şeyi herkesle paylaşan bir tasarım stüdyosu. Arkasında endüstriyel tasarımcı <b>Mehmet Emir Aydın</b> var.</p>
       <div class="cta-row">
         <a class="btn btn-ac" href="https://instagram.com/memirdesign" target="_blank" rel="noopener">Instagram'da takip et <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
-        <a class="btn btn-ghost" href="#biz">Neler yapıyoruz?</a>
+        <a class="btn btn-ghost" href="#isler">Neler yaptık?</a>
       </div>
       <div class="hero-soc mono">
         <a href="https://instagram.com/memirdesign" target="_blank" rel="noopener">Instagram</a>
@@ -537,54 +571,11 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
-<div class="stats">
-  <div class="wrap">
-    <div class="stat reveal"><strong>5</strong><p>İçerik alanı: 3D baskı, teknoloji, eğitim, oyun ve mizah</p></div>
-    <div class="stat reveal"><strong>3</strong><p>Modellerimizin yayında olduğu baskı platformu</p></div>
-    <div class="stat reveal"><strong>13</strong><p>Karakterlik çiftlik serisi, tek tasarım dilinde</p></div>
-    <div class="stat reveal"><strong>∞<sup>*</sup></strong><p>Baskı hatası. *Her biri bir sonraki tasarımı daha iyi yaptı.</p></div>
-  </div>
-</div>
-
-<!-- ============ BİZ ============ -->
-<section class="sec" id="biz">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="mono"><b>01</b> — Memir Design nedir?</div>
-      <h2>Tasarlıyoruz, basıyoruz, <em>anlatıyoruz.</em></h2>
-    </div>
-    <p class="intro reveal">Memir Design; tasarım, 3D baskı ve teknoloji üzerine üreten bir tasarım stüdyosu ve içerik markası. Bir fikrin eskizden bitmiş nesneye dönüşmesini, aradaki bütün denemeleri ve hataları da göstererek, herkesin takip edebileceği bir hikâyeye çeviriyoruz.</p>
-    <div class="pillars">
-      <div class="pillar reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 40 30 18l6 6-22 22H8z"/><path d="m26 22 6 6M34 10l4 4M30 14l8-8 4 4-8 8"/></svg>
-        <span class="mono">01</span><h3>Tasarlıyoruz</h3>
-        <p>Günlük hayattaki küçük sorunlara ürün tasarımıyla çözüm arıyoruz: oyunlar, ev ürünleri, atölye ekipmanları.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="3"/><path d="M6 14h36M20 14v8l4 4 4-4v-8"/><path d="M14 38h20M16 34h16" stroke="#e10600"/></svg>
-        <span class="mono">02</span><h3>Basıyoruz</h3>
-        <p>Her tasarım atölyede 3D yazıcıdan geçiyor. Toleranslar, yüzeyler ve dayanım masada test ediliyor.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="14" y="4" width="20" height="40" rx="4"/><path d="m21 18 9 6-9 6z" fill="#e10600" stroke="none"/></svg>
-        <span class="mono">03</span><h3>Anlatıyoruz</h3>
-        <p>Sürecin tamamını, hataları da dahil, kısa ve eğlenceli videolarla Instagram ve YouTube'da paylaşıyoruz.</p>
-      </div>
-      <div class="pillar reveal">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M24 6 42 16v16L24 42 6 32V16z"/><path d="M6 16l18 10 18-10M24 26v16"/></svg>
-        <span class="mono">04</span><h3>Paylaşıyoruz</h3>
-        <p>Modelleri baskı profilleriyle yayınlıyor, 3D baskının bir hobiden fazlası, gerçek bir iş imkânı olduğunu gösteriyoruz.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SOSYAL ============ -->
 <section class="sec social" id="takip">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="mono"><b>02</b> — Bizi takip et</div>
+      <div class="mono"><b>01</b> — Bizi takip et</div>
       <h2>Atölye her gün <em>yayında.</em></h2>
     </div>
 
@@ -651,171 +642,45 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
 <section class="sec" id="isler">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="mono"><b>03</b> — Neler yaptık</div>
-      <h2>Kullanılmak için tasarlanan <em>nesneler.</em></h2>
+      <div class="mono"><b>02</b> — Neler yaptık</div>
+      <h2>Tasarladık, bastık, <em>anlattık.</em></h2>
     </div>
-
-    <article class="project">
-      <div class="p-media reveal">
-        <div class="frame"><img src="koridor-1.webp" alt="Yeşil, turuncu ve mor üç Koridor oyun tahtası, üzerlerinde siyah duvarlar ve piyonlar" loading="lazy" width="916" height="916"><span class="cap mono">Koridor — üç renk</span></div>
-        <div class="frame inset"><img src="koridor-2.webp" alt="Üst üste dizilmiş renkli Koridor tahtaları" loading="lazy" width="916" height="916"></div>
-      </div>
-      <div class="p-info reveal">
-        <div class="p-num">PROJE 01</div>
-        <h3>Koridor</h3>
-        <div class="p-type">Strateji masa oyunu</div>
-        <p>İlk olarak <b>bir sınıf dolusu öğrenci</b> için tasarlandı. Kural basit: piyonunu karşı tarafa ilk sen ulaştır, rakibinin yolunu duvarlarla kes. Parçalar küçük ellerde kolay tutulsun, duvarlar tahtaya sağlam otursun diye ölçüler baskıda defalarca denendi.</p>
-        <ul class="specs">
-          <li><span>Disiplin</span><span>Oyun tasarımı · 3D modelleme</span></li>
-          <li><span>Tahta</span><span>23,2 × 23,2 cm</span></li>
-          <li><span>Renkler</span><span class="swatches"><i style="background:#5b9a5a"></i><i style="background:#ff5a1f"></i><i style="background:#7a4fa3"></i></span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="project flip">
-      <div class="p-media reveal">
-        <div class="frame"><img src="katamino-1.webp" alt="Katamino bulmaca tahtası ve renkli pentomino parçaları" loading="lazy" width="916" height="916"><span class="cap mono">Katamino — pentomino bulmacası</span></div>
-        <div class="frame inset"><img src="katamino-2.webp" alt="Boş Katamino tahtası ve dağınık renkli parçalar, üstten görünüm" loading="lazy" width="916" height="916"></div>
-      </div>
-      <div class="p-info reveal">
-        <div class="p-num">PROJE 02</div>
-        <h3>Katamino</h3>
-        <div class="p-type">Zekâ ve uzamsal düşünme oyunu</div>
-        <p>Aynı sınıfta en çok sevilen oyun bu oldu. Renkli parçaları tahtaya <b>boşluk kalmadan</b> yerleştirmek gerekiyor; seviye ilerledikçe bulmaca zorlaşıyor. Çocukların odaklanmasını ve problem çözmesini besleyen, yetişkinleri de masada tutan bir tasarım.</p>
-        <ul class="specs">
-          <li><span>Disiplin</span><span>Oyun tasarımı · 3D modelleme</span></li>
-          <li><span>Oyuncu</span><span>1–2 kişi</span></li>
-          <li><span>Bulmaca</span><span>Kolaydan zora yüzlerce</span></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="p-media reveal">
-        <div class="mosaic">
-          <div class="frame big"><img src="altlik-inek.webp" alt="İnek figürlü bardak altlığı üzerinde kahve fincanı" loading="lazy" width="916" height="916"><span class="cap mono">İnek</span></div>
-          <div class="frame"><img src="altlik-ejderha.webp" alt="Ejderha figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Ejderha</span></div>
-          <div class="frame"><img src="altlik-tilki.webp" alt="Tilki figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Tilki</span></div>
-          <div class="frame"><img src="altlik-koyun.webp" alt="Koyun figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Koyun</span></div>
-          <div class="frame"><img src="altlik-maymun.webp" alt="Maymun figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Maymun</span></div>
-          <div class="frame"><img src="altlik-ordek.webp" alt="Ördek figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Ördek</span></div>
-          <div class="frame"><img src="altlik-esek.webp" alt="Eşek figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Eşek</span></div>
-          <div class="frame"><img src="altlik-tavsan.webp" alt="Tavşan figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Tavşan</span></div>
-          <div class="frame"><img src="altlik-domuz.webp" alt="Domuz figürlü bardak altlığı" loading="lazy" width="916" height="916"><span class="cap mono">Domuz</span></div>
-        </div>
-      </div>
-      <div class="p-info reveal">
-        <div class="p-num">PROJE 03</div>
-        <h3>Çiftlik serisi</h3>
-        <div class="p-type">Hayvan figürlü bardak altlıkları</div>
-        <p>İnekten ejderhaya <b>13 karakterlik</b> bir seri. Fincan gövdenin tam ortasına oturuyor; kafa, bacaklar ve kuyruk masada küçük bir sahne kuruyor. Her biri destek gerektirmeden tek seferde basılacak şekilde tasarlandı.</p>
-        <p>Modelleri baskı profilleriyle birlikte <b>MakerWorld, Creality Cloud ve Makeronline</b>'da paylaştık; isteyen kendi yazıcısında basabiliyor.</p>
-        <ul class="specs">
-          <li><span>Seri</span><span>13 karakter</span></li>
-          <li><span>Yayın</span><span>3 baskı platformu</span></li>
-        </ul>
-        <a class="tlink" href="https://makerworld.com/en/@MemirDesign" target="_blank" rel="noopener">Modelleri gör <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
-      </div>
-    </article>
-
-    <article class="project flip">
-      <div class="eng reveal">
-        <div class="eng-grid">
-          <div class="joint">
-            <svg viewBox="0 0 120 150" aria-hidden="true"><rect x="14" y="22" width="92" height="34" rx="2" fill="#26221e" stroke="#8d8378"/><rect x="48" y="22" width="24" height="34" fill="#1a1714" stroke="#8d8378" stroke-dasharray="3 3"/><rect x="48" y="38" width="24" height="98" rx="2" fill="#3a342e" stroke="#cfc6ba"/><path d="M48 46h-6v8h6M72 46h6v8h-6" fill="none" stroke="#cfc6ba"/><ellipse class="stress" cx="60" cy="58" rx="26" ry="10" fill="url(#hs)"/></svg>
-            <div class="mono"><b>A</b>İç içe geçmeli</div>
-          </div>
-          <div class="joint">
-            <svg viewBox="0 0 120 150" aria-hidden="true"><rect x="14" y="22" width="92" height="34" rx="2" fill="#26221e" stroke="#8d8378"/><path d="M48 136V64l-8-8h40l-8 8v72z" fill="#3a342e" stroke="#cfc6ba"/><ellipse class="stress" cx="60" cy="60" rx="24" ry="9" fill="url(#hs)" style="animation-delay:.4s"/></svg>
-            <div class="mono"><b>B</b>Pahlı</div>
-          </div>
-          <div class="joint">
-            <svg viewBox="0 0 120 150" aria-hidden="true"><rect x="14" y="22" width="92" height="34" rx="16" fill="#26221e" stroke="#8d8378"/><rect x="48" y="56" width="24" height="80" rx="10" fill="#3a342e" stroke="#cfc6ba"/><ellipse class="stress" cx="60" cy="58" rx="20" ry="8" fill="url(#hs)" style="animation-delay:.8s"/></svg>
-            <div class="mono"><b>C</b>Köşesiz</div>
-          </div>
-          <div class="joint">
-            <svg viewBox="0 0 120 150" aria-hidden="true"><rect x="14" y="22" width="92" height="34" rx="2" fill="#26221e" stroke="#8d8378"/><path d="M48 136V72c0-8-6-16-14-16h52c-8 0-14 8-14 16v64z" fill="#3a342e" stroke="#cfc6ba"/><ellipse class="stress" cx="60" cy="62" rx="22" ry="8" fill="url(#hs)" style="animation-delay:1.2s"/></svg>
-            <div class="mono"><b>D</b>Radyuslu</div>
-          </div>
-        </div>
-        <svg width="0" height="0" style="position:absolute"><defs><radialGradient id="hs"><stop offset="0" stop-color="#ff2a2a" stop-opacity=".9"/><stop offset=".35" stop-color="#e10600" stop-opacity=".7"/><stop offset=".65" stop-color="#ffd400" stop-opacity=".35"/><stop offset="1" stop-color="#2fd3a7" stop-opacity="0"/></radialGradient></defs></svg>
-        <div class="eng-foot mono"><span>Çekiç başı – sap bağlantısı · 4 geometri</span><span class="legend">Düşük <i></i> Yüksek gerilme</span></div>
-      </div>
-      <div class="p-info reveal">
-        <div class="p-num">PROJE 04</div>
-        <h3>Bağlantı çalışması</h3>
-        <div class="p-type">Mühendislik · animasyon</div>
-        <p>Aynı çekiç, dört farklı bağlantı: <b>iç içe geçmeli, pahlı, köşesiz ve radyuslu</b>. Sapın başa birleştiği noktadaki geometri değişince yükün nasıl dağıldığını gösteren, 3D modellerden üretilmiş animasyonlu bir karşılaştırma.</p>
-        <p>Çünkü güzel görünen bir parça, kullanıldığı ilk gün kırılıyorsa iyi tasarlanmış sayılmaz.</p>
-      </div>
-    </article>
-
-    <div class="index reveal">
-      <h4><span>Diğer çalışmalar</span><span>05 — 08</span></h4>
-      <a class="row" href="https://makerworld.com/en/@MemirDesign" target="_blank" rel="noopener">
-        <span class="n">05</span><h5>F1 Bricks</h5><p>Bloklarla birleştirilen yarış arabası modeli. Baskıya hazır dosyalarıyla üç platformda yayında.</p><span class="st live">Yayında</span>
-        <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg>
-      </a>
-      <div class="row">
-        <span class="n">06</span><h5>Kapadokya boyama seti</h5><p>Kapadokya balonu baskısı, akrilik boyalar ve önizleme afişiyle kendin boya seti.</p><span class="st">Geliştiriliyor</span>
-        <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h8M9 5l3 3-3 3"/></svg>
-      </div>
-      <a class="row" href="https://instagram.com/memirdesign" target="_blank" rel="noopener">
-        <span class="n">07</span><h5>Atölye rafı</h5><p>Ahşap tabla ve 3D baskı ayaklarla yapılan yazıcı rafı. Makine sayısı arttıkça kat ekleniyor.</p><span class="st">Kendin yap</span>
-        <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg>
-      </a>
-      <a class="row" href="https://instagram.com/memirdesign" target="_blank" rel="noopener">
-        <span class="n">08</span><h5>Buzdolabı çekmecesi</h5><p>Buzdolabı rafına eklenen, baskıyla üretilmiş pratik bir çekmece.</p><span class="st">Ev ürünü</span>
-        <svg class="arr" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg>
-      </a>
+    <div class="tabs reveal" role="toolbar" aria-label="Kategoriler"><button type="button" class="tab on" data-cat="all" aria-pressed="true">Tümü<small>8</small></button><button type="button" class="tab" data-cat="oyun" aria-pressed="false">Oyunlar<small>2</small></button><button type="button" class="tab" data-cat="ev" aria-pressed="false">Ev & yaşam<small>1</small></button><button type="button" class="tab" data-cat="model" aria-pressed="false">Modeller<small>3</small></button><button type="button" class="tab" data-cat="muh" aria-pressed="false">Mühendislik<small>1</small></button><button type="button" class="tab" data-cat="atolye" aria-pressed="false">Atölye<small>1</small></button></div>
+    <div class="wgrid" id="wgrid">
+        <div class="wcard" data-cat="oyun"><div class="wimg"><img src="koridor-1.webp" alt="Koridor" loading="lazy"></div><span class="mono wcat">Oyunlar</span><h3>Koridor</h3><p>Strateji masa oyunu. Bir sınıf dolusu öğrenci için tasarlandı; piyonunu karşıya ilk ulaştıran kazanır.</p></div>
+        <div class="wcard" data-cat="oyun"><div class="wimg"><img src="katamino-1.webp" alt="Katamino" loading="lazy"></div><span class="mono wcat">Oyunlar</span><h3>Katamino</h3><p>Renkli parçaları boşluksuz yerleştirme bulmacası. Sınıfta en çok sevilen oyun oldu.</p></div>
+        <a class="wcard" data-cat="ev" href="https://makerworld.com/en/@MemirDesign" target="_blank" rel="noopener"><div class="wimg"><img src="altlik-inek.webp" alt="Çiftlik serisi" loading="lazy"></div><span class="mono wcat">Ev & yaşam</span><h3>Çiftlik serisi</h3><p>13 hayvanlık bardak altlığı serisi. Destek gerektirmeden tek seferde basılıyor.</p></a>
+        <a class="wcard" data-cat="model" href="https://makerworld.com/en/@MemirDesign" target="_blank" rel="noopener"><div class="wimg"><img src="reel-f1.webp" alt="F1 Bricks" loading="lazy" style="object-position:top"></div><span class="mono wcat">Modeller</span><h3>F1 Bricks</h3><p>Bloklarla birleştirilen yarış arabası seti. Baskıya hazır dosyalarıyla üç platformda.</p></a>
+        <a class="wcard" data-cat="model" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><div class="wimg"><img src="reel-eskiz.webp" alt="Eskizden sergiye" loading="lazy" style="object-position:top"></div><span class="mono wcat">Modeller</span><h3>Eskizden sergiye</h3><p>Kâğıttaki bir eskizin üç boyutlu bir figüre dönüşme yolculuğu.</p></a>
+        <a class="wcard" data-cat="model" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><div class="wimg"><img src="reel-hayvan.webp" alt="Yapay zekâyla figürler" loading="lazy" style="object-position:top"></div><span class="mono wcat">Modeller</span><h3>Yapay zekâyla figürler</h3><p>Yapay zekâyla tasarlayıp bastığımız hayvan figürleri.</p></a>
+        <a class="wcard" data-cat="muh" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><div class="wimg"><img src="reel-cekic.webp" alt="Çekiç dayanım testi" loading="lazy" style="object-position:top"></div><span class="mono wcat">Mühendislik</span><h3>Çekiç dayanım testi</h3><p>Dört farklı sap bağlantısı: iç içe geçmeli, pahlı, köşesiz, radyuslu. Hangisi kırılır?</p></a>
+        <a class="wcard" data-cat="atolye" href="https://www.instagram.com/memirdesign/reels/" target="_blank" rel="noopener"><div class="wimg"><img src="reel-kobra.webp" alt="Yazıcı kurulumları" loading="lazy" style="object-position:top"></div><span class="mono wcat">Atölye</span><h3>Yazıcı kurulumları</h3><p>Anycubic Kobra X ve Creality Spark X7: kutu açılımından ilk baskıya adım adım.</p></a>
     </div>
   </div>
 </section>
 
-<!-- ============ MANIFESTO ============ -->
-<section class="manifesto">
-  <div class="wrap">
-    <span class="mono reveal">— Tasarım anlayışımız</span>
-    <blockquote class="reveal">Bir üründe sadece tasarım <em>yetmez.</em> <span class="u">Mühendislik</span> de en az tasarım kadar önemlidir.</blockquote>
-    <cite class="reveal">Mehmet Emir Aydın</cite>
-    <svg class="dim" viewBox="0 0 200 200" fill="none" stroke="currentColor" aria-hidden="true">
-      <circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="30" stroke-dasharray="4 4"/>
-      <path d="M100 20v160M20 100h160" stroke-dasharray="2 6"/>
-      <path d="M38 190h124M38 184v12M162 184v12"/><text x="100" y="186" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="currentColor" stroke="none">Ø 124</text>
-      <path d="M144 56l26-26h24"/><text x="172" y="26" font-family="JetBrains Mono,monospace" font-size="9" fill="currentColor" stroke="none">R 62</text>
-    </svg>
-  </div>
-</section>
-
-<!-- ============ PROCESS ============ -->
-<section class="sec process" id="surec">
+<!-- ============ BİZ ============ -->
+<section class="sec biz" id="biz">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="mono"><b>04</b> — Nasıl çalışıyoruz</div>
-      <h2>Fikirden masaya, masadan <em>ekrana.</em></h2>
+      <div class="mono"><b>03</b> — Memir Design nedir?</div>
+      <h2>Bir tasarım stüdyosu ve <em>içerik markası.</em></h2>
     </div>
-    <div class="steps" id="steps">
-      <div class="track"><i id="trackFill"></i></div>
-      <div class="step"><div class="dot">01</div><h3>Gözlem</h3><p>Her şey küçük bir sorunla başlıyor: yerde duran yazıcılar, dağılan oyun parçaları, masada iz bırakan bir fincan.</p></div>
-      <div class="step"><div class="dot">02</div><h3>Tasarım</h3><p>Eskiz, ölçü ve 3D model. Parçanın nasıl kullanılacağı düşünülürken nasıl basılacağı da baştan hesaba katılıyor.</p></div>
-      <div class="step"><div class="dot">03</div><h3>Prototip</h3><p>İlk baskılar atölyede çıkıyor. Ayarlar, toleranslar, yüzey dokusu, hepsi bu aşamada deneniyor.</p><div class="tool mono">Creality Spark X7 · Anycubic Kobra X<br>Bambu Studio · Orca</div></div>
-      <div class="step"><div class="dot">04</div><h3>Test</h3><p>Kırılıyor mu, oturuyor mu, keyif veriyor mu? Cevap hayırsa çizime geri dönülüyor.</p></div>
-      <div class="step"><div class="dot">05</div><h3>Paylaşım</h3><p>Bitmiş tasarımın hikâyesi Reels ve YouTube'da anlatılıyor, modeli baskı platformlarında yayınlanıyor.</p></div>
+    <div class="pillars">
+      <div class="pillar reveal"><span class="mono">01</span><h3>Tasarlıyoruz</h3><p>Günlük hayattaki küçük sorunlara ürün tasarımıyla çözüm arıyoruz.</p></div>
+      <div class="pillar reveal"><span class="mono">02</span><h3>Basıyoruz</h3><p>Her tasarım atölyede 3D yazıcıdan geçiyor, masada test ediliyor.</p></div>
+      <div class="pillar reveal"><span class="mono">03</span><h3>Anlatıyoruz</h3><p>Süreci, hataları da dahil, kısa videolarla paylaşıyoruz.</p></div>
+      <div class="pillar reveal"><span class="mono">04</span><h3>Öğretiyoruz</h3><p>3D baskının bir hobiden fazlası, gerçek bir iş imkânı olduğunu gösteriyoruz.</p></div>
     </div>
+    <blockquote class="quote reveal">“Bir üründe sadece tasarım yetmez. <span>Mühendislik de en az tasarım kadar önemlidir.</span>”<cite class="mono">— Mehmet Emir Aydın</cite></blockquote>
   </div>
 </section>
-
-<div class="marquee" aria-hidden="true"><div class="track2">
-  <span class="f">Gözlemle</span><span>Tasarla</span><span class="o">Bas</span><span>Test et</span><span class="f">Paylaş</span><span>Tekrarla</span>
-  <span class="f">Gözlemle</span><span>Tasarla</span><span class="o">Bas</span><span>Test et</span><span class="f">Paylaş</span><span>Tekrarla</span>
-</div></div>
 
 <!-- ============ ABOUT ============ -->
 <section class="sec" id="kurucu">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="mono"><b>05</b> — Arkasındaki isim</div>
+      <div class="mono"><b>04</b> — Arkasındaki isim</div>
       <h2>Merhaba, ben <em>Mehmet Emir.</em></h2>
     </div>
     <div class="about-grid">
@@ -860,7 +725,7 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="iletisim">
   <div class="wrap">
-    <div class="mono reveal" style="color:var(--mu2);margin-bottom:28px"><b class="ac" style="font-weight:500">06</b> — İletişim</div>
+    <div class="mono reveal" style="color:var(--mu2);margin-bottom:28px"><b class="ac" style="font-weight:500">05</b> — İletişim</div>
     <h2 class="reveal">Bir fikrin mi var?<br><em>Yaz, konuşalım.</em></h2>
     <div class="contact-grid">
       <ul class="services reveal">
@@ -869,9 +734,10 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
         <li><span>C</span><div><b>Sadece merhaba</b><p>Bir sorun, takıldığın bir baskı ya da paylaşmak istediğin bir şey varsa kapımız açık.</p></div></li>
       </ul>
       <div class="contact-links reveal">
-        <a class="btn btn-ac" data-link="whatsapp" href="#" target="_blank" rel="noopener">WhatsApp'tan yaz <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+        
+        <a class="btn btn-ac" data-link="email" href="#">E-posta gönder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
         <a class="btn btn-ghost" href="https://instagram.com/memirdesign" target="_blank" rel="noopener">Instagram'dan mesaj at <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
-        <a class="btn btn-ghost" data-link="email" href="#">E-posta gönder <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12 12 4M5 4h7v7"/></svg></a>
+        
         <div class="hint"><a class="em" href="mailto:mehmetemiraydn@gmail.com">mehmetemiraydn@gmail.com</a><span class="mono">Mesajlara genellikle aynı gün dönüyoruz.</span></div>
       </div>
     </div>
@@ -898,7 +764,6 @@ a.soc:hover .go{color:var(--ac);transform:translate(3px,-3px)}
 <script>
 /* ===== Bağlantılar: boş bırakılanların butonu gizlenir ===== */
 const LINKS = {
-  whatsapp: "https://wa.me/905334855536?text=" + encodeURIComponent("Merhaba Memir Design!"),
   youtube:  "https://www.youtube.com/@MemirDesign",
   email:    "mailto:mehmetemiraydn@gmail.com"
 };
@@ -936,15 +801,14 @@ mm.querySelectorAll("a").forEach(a=> a.addEventListener("click", ()=> setMenu(fa
 const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }), {threshold:.14, rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll(".reveal").forEach((el,i)=>{ el.style.transitionDelay = (el.parentElement.querySelectorAll(":scope > .reveal").length>1 ? ([...el.parentElement.children].indexOf(el)%4)*90 : 0) + "ms"; io.observe(el); });
 
-/* ===== Process track ===== */
-const steps = document.getElementById("steps"), fill = document.getElementById("trackFill"), stepEls=[...steps.querySelectorAll(".step")];
-function trackUpdate(){
-  const r = steps.getBoundingClientRect(), vh = innerHeight;
-  const p = Math.min(1, Math.max(0, (vh*0.78 - r.top) / (r.height + vh*0.25)));
-  fill.style.width = (p*100) + "%";
-  stepEls.forEach((s,i)=> s.classList.toggle("on", p > i/stepEls.length + .02));
-}
-addEventListener("scroll", trackUpdate, {passive:true}); addEventListener("resize", trackUpdate); trackUpdate();
+/* ===== Kategori sekmeleri ===== */
+(function(){
+  const tabs=[...document.querySelectorAll(".tab")], cards=[...document.querySelectorAll(".wcard")];
+  tabs.forEach(t=>t.addEventListener("click",()=>{
+    tabs.forEach(x=>{x.classList.toggle("on",x===t); x.setAttribute("aria-pressed",x===t);});
+    const c=t.dataset.cat; cards.forEach(k=>k.classList.toggle("hide", c!=="all" && k.dataset.cat!==c));
+  }));
+})();
 
 /* ===== Hero: 3D yazıcı katman animasyonu ===== */
 (function(){
