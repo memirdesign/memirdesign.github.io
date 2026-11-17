@@ -899,7 +899,7 @@ document.querySelectorAll(".reveal").forEach((el,i)=>{ el.style.transitionDelay 
   }
 
   resize(); addEventListener("resize", resize);
-  if(reduce){ frame(total+0.5); return; }
+  // Baskı animasyonu yavaş ve yanıp sönmeyen bir hareket; "hareketi azalt" ayarında da çalışır.
   let t0=null, visible=true;
   new IntersectionObserver(e=>{ visible=e[0].isIntersecting; }).observe(cv);
   function loop(ts){
