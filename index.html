@@ -902,9 +902,13 @@ document.querySelectorAll(".reveal").forEach((el,i)=>{ el.style.transitionDelay 
   // Baskı animasyonu yavaş ve yanıp sönmeyen bir hareket; "hareketi azalt" ayarında da çalışır.
   let t0=null, visible=true;
   new IntersectionObserver(e=>{ visible=e[0].isIntersecting; }).observe(cv);
+  const END=total+1.5; let done=false;
+  addEventListener("resize",()=>{ if(done) frame(END); });
   function loop(ts){
     if(t0===null) t0=ts;
-    if(visible){ frame(((ts-t0)/1000)%CYCLE); }
+    const t=(ts-t0)/1000;
+    if(t>=END){ done=true; frame(END); return; }   // baskı bitti: son hâlinde kalır, tekrar başlamaz
+    if(visible) frame(t);
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
